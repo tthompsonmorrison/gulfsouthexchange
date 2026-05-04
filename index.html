@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gulf Surplus &amp; Exchange | Offshore &amp; Marine Equipment</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root{--navy:#0b1a2e;--amber:#c97d10;--amber2:#e8941a;--white:#ffffff;--offwhite:#f5f6f8;--border:#dde2ea;--text:#1a2637;--muted:#5e6f84;--tag-bg:#eef1f5;--tag-text:#4a5a6e;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--white);color:var(--text);font-family:'Barlow',sans-serif;line-height:1.6;min-height:100vh;}
+    ::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:var(--offwhite);}::-webkit-scrollbar-thumb{background:var(--navy);border-radius:3px;}
+
+    /* TOPBAR */
+    .topbar{position:fixed;top:0;left:0;right:0;z-index:101;background:var(--navy);height:36px;display:flex;align-items:center;justify-content:center;padding:0 1rem;}
+    .topbar-inner{display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:nowrap;}
+    .topbar-divider{width:1px;height:12px;background:rgba(255,255,255,0.2);flex-shrink:0;}
+    .topbar-item{font-family:'Barlow Condensed',sans-serif;font-size:0.8rem;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;color:rgba(255,255,255,0.6);white-space:nowrap;}
+    .topbar-item a{color:rgba(255,255,255,0.75);text-decoration:none;transition:color 0.2s;}
+    .topbar-item a:hover{color:#fff;}
+    .topbar-label{color:rgba(255,255,255,0.35);}
+    @media(max-width:600px){.topbar-hide-mobile{display:none;}.topbar-divider.hide-mobile{display:none;}}
+
+    /* NAV */
+    nav{position:fixed;top:36px;left:0;right:0;z-index:100;background:rgba(255,255,255,0.97);border-bottom:1px solid var(--border);backdrop-filter:blur(12px);}
+    .nav-inner{max-width:1360px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:68px;}
+    .nav-logo{display:flex;align-items:center;text-decoration:none;}
+    .nav-wordmark{display:flex;flex-direction:column;line-height:1;}
+    .nav-wordmark span:first-child{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.2rem;letter-spacing:0.08em;color:var(--navy);text-transform:uppercase;}
+    .nav-wordmark span:last-child{font-family:'Barlow Condensed',sans-serif;font-size:0.68rem;font-weight:600;letter-spacing:0.2em;color:var(--muted);text-transform:uppercase;}
+    .nav-links{display:flex;align-items:center;gap:2rem;list-style:none;}
+    .nav-links a{font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;color:var(--muted);transition:color 0.2s;}
+    .nav-links a:hover{color:var(--navy);}
+    .nav-cta{font-family:'Barlow Condensed',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;background:var(--navy);color:#fff;padding:0.5rem 1.25rem;border:none;cursor:pointer;transition:background 0.2s;}
+    .nav-cta:hover{background:#1a3050;}
+
+    /* HERO */
+    .hero{margin-top:104px;position:relative;overflow:hidden;min-height:520px;display:flex;align-items:flex-end;}
+    .hero-bg{position:absolute;inset:0;background:linear-gradient(160deg,rgba(11,26,46,0.15) 0%,rgba(11,26,46,0.92) 65%),url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1600&q=80') center/cover no-repeat;}
+    .hero-content{position:relative;z-index:2;max-width:1360px;margin:0 auto;padding:0 2rem 4rem;width:100%;}
+    .hero-label{font-family:'Roboto Mono',monospace;font-size:0.72rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--amber);margin-bottom:1rem;display:flex;align-items:center;gap:0.75rem;}
+    .hero-label::before{content:'';display:block;width:32px;height:1px;background:var(--amber);}
+    .hero h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(3rem,6vw,5.5rem);font-weight:900;line-height:0.95;text-transform:uppercase;color:#fff;margin-bottom:1.5rem;}
+    .hero h1 span{color:var(--amber);}
+    .hero-sub{font-size:1.05rem;font-weight:300;color:rgba(255,255,255,0.6);max-width:520px;margin-bottom:2.5rem;line-height:1.7;}
+    .hero-actions{display:flex;gap:1rem;flex-wrap:wrap;}
+    .btn-primary{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.9rem;letter-spacing:0.12em;text-transform:uppercase;background:var(--navy);color:#fff;padding:0.85rem 2.25rem;border:none;cursor:pointer;text-decoration:none;display:inline-block;transition:background 0.2s;}
+    .btn-primary:hover{background:#1a3050;}
+    .btn-outline{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.9rem;letter-spacing:0.12em;text-transform:uppercase;background:transparent;color:#fff;padding:0.85rem 2.25rem;border:1px solid rgba(255,255,255,0.3);cursor:pointer;text-decoration:none;display:inline-block;transition:border-color 0.2s;}
+
+    /* STATS */
+    .stats-strip{background:var(--navy);padding:1.1rem 2rem;}
+    .stats-inner{max-width:1360px;margin:0 auto;display:flex;gap:3rem;flex-wrap:wrap;align-items:center;}
+    .stat-item{display:flex;align-items:baseline;gap:0.5rem;}
+    .stat-num{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.6rem;color:#fff;}
+    .stat-label{font-family:'Barlow Condensed',sans-serif;font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);}
+
+    /* LISTINGS */
+    .main-wrap{max-width:1360px;margin:0 auto;padding:3.5rem 2rem 5rem;}
+    .section-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:2rem;flex-wrap:wrap;gap:1rem;}
+    .section-title{font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:800;text-transform:uppercase;letter-spacing:0.04em;color:var(--navy);}
+    .section-title span{color:var(--amber);}
+    .section-count{font-family:'Roboto Mono',monospace;font-size:0.75rem;color:var(--muted);letter-spacing:0.1em;}
+    .search-row{display:flex;gap:0.75rem;margin-bottom:2rem;flex-wrap:wrap;}
+    .search-input{flex:1;min-width:220px;background:var(--white);border:1px solid var(--border);color:var(--text);font-family:'Barlow',sans-serif;font-size:0.9rem;padding:0.65rem 1rem;outline:none;transition:border-color 0.2s;}
+    .search-input:focus{border-color:var(--navy);}
+    .search-input::placeholder{color:var(--muted);}
+    .search-btn{font-family:'Barlow Condensed',sans-serif;font-size:0.82rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;background:var(--navy);color:#fff;padding:0 1.5rem;border:none;cursor:pointer;}
+    .equipment-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem;}
+
+    /* CARD */
+    .card{background:var(--white);border:1px solid var(--border);display:flex;flex-direction:column;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;animation:fadeUp 0.45s ease both;}
+    .card:hover{border-color:var(--navy);transform:translateY(-3px);box-shadow:0 8px 32px rgba(11,26,46,0.1);}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+
+    /* CARD CAROUSEL */
+    .card-img{width:100%;height:220px;overflow:hidden;background:var(--offwhite);position:relative;cursor:pointer;}
+    .card-img img{width:100%;height:100%;object-fit:cover;transition:opacity 0.3s ease;}
+    .card-badge{position:absolute;top:10px;right:10px;font-family:'Barlow Condensed',sans-serif;font-size:0.65rem;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;padding:0.25rem 0.6rem;z-index:2;}
+    .card-badge.avail{background:#1a8c4e;color:#fff;}
+    .carousel-arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(11,26,46,0.65);color:#fff;border:none;width:32px;height:32px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:3;transition:background 0.2s;font-size:0.9rem;}
+    .carousel-arrow:hover{background:rgba(11,26,46,0.9);}
+    .carousel-arrow.prev{left:8px;}
+    .carousel-arrow.next{right:8px;}
+    .carousel-dots{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);display:flex;gap:5px;z-index:3;}
+    .carousel-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.5);border:none;cursor:pointer;padding:0;transition:background 0.2s;}
+    .carousel-dot.active{background:#fff;}
+    .card-img-overlay{position:absolute;inset:0;background:rgba(11,26,46,0);transition:background 0.2s;z-index:1;display:flex;align-items:center;justify-content:center;}
+    .card-img:hover .card-img-overlay{background:rgba(11,26,46,0.15);}
+    .view-detail-hint{font-family:'Barlow Condensed',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#fff;background:rgba(11,26,46,0.7);padding:0.3rem 0.75rem;opacity:0;transition:opacity 0.2s;}
+    .card-img:hover .view-detail-hint{opacity:1;}
+
+    .card-body{padding:1.25rem;flex:1;display:flex;flex-direction:column;}
+    .card-cat{font-family:'Roboto Mono',monospace;font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:0.4rem;}
+    .card-title{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:800;text-transform:uppercase;letter-spacing:0.03em;color:var(--navy);margin-bottom:0.6rem;line-height:1.1;}
+    .card-desc{font-size:0.83rem;color:var(--muted);line-height:1.65;flex:1;margin-bottom:1rem;}
+    .card-meta{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:1rem;}
+    .tag{font-family:'Roboto Mono',monospace;font-size:0.62rem;letter-spacing:0.08em;padding:0.2rem 0.55rem;background:var(--tag-bg);color:var(--tag-text);border:1px solid var(--border);}
+    .card-footer{display:flex;align-items:center;justify-content:space-between;padding:0.75rem 1.25rem;border-top:1px solid var(--border);}
+    .card-price{font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:700;color:var(--muted);letter-spacing:0.05em;text-transform:uppercase;}
+    .card-inquire{font-family:'Barlow Condensed',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;background:transparent;color:var(--navy);border:1px solid var(--navy);padding:0.4rem 0.9rem;cursor:pointer;transition:all 0.18s;}
+    .card-inquire:hover{background:var(--navy);color:#fff;}
+    .no-results{text-align:center;padding:4rem 2rem;color:var(--muted);display:none;grid-column:1/-1;}
+    .no-results.show{display:block;}
+
+    /* DETAIL MODAL */
+    .detail-overlay{position:fixed;inset:0;z-index:200;background:rgba(11,26,46,0.85);backdrop-filter:blur(8px);display:none;align-items:flex-start;justify-content:center;padding:2rem 1rem;overflow-y:auto;}
+    .detail-overlay.open{display:flex;}
+    .detail-modal{background:var(--white);width:100%;max-width:960px;margin:auto;position:relative;animation:slideUp 0.3s ease;}
+    @keyframes slideUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+    .detail-close{position:absolute;top:1rem;right:1rem;background:var(--navy);border:none;color:#fff;width:36px;height:36px;cursor:pointer;font-size:1.1rem;z-index:10;display:flex;align-items:center;justify-content:center;}
+    .detail-gallery{position:relative;background:#000;height:420px;overflow:hidden;}
+    .detail-gallery img{width:100%;height:100%;object-fit:contain;transition:opacity 0.3s;}
+    .detail-gallery-arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(11,26,46,0.6);color:#fff;border:none;width:44px;height:44px;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;z-index:3;transition:background 0.2s;}
+    .detail-gallery-arrow:hover{background:rgba(11,26,46,0.9);}
+    .detail-gallery-arrow.prev{left:12px;}
+    .detail-gallery-arrow.next{right:12px;}
+    .detail-gallery-counter{position:absolute;bottom:12px;right:14px;font-family:'Roboto Mono',monospace;font-size:0.72rem;color:rgba(255,255,255,0.7);background:rgba(0,0,0,0.4);padding:0.2rem 0.6rem;}
+    .detail-thumbs{display:flex;gap:0.5rem;padding:0.75rem 1rem;background:var(--offwhite);border-bottom:1px solid var(--border);overflow-x:auto;}
+    .detail-thumb{width:72px;height:56px;object-fit:cover;cursor:pointer;border:2px solid transparent;flex-shrink:0;transition:border-color 0.2s;opacity:0.65;filter:brightness(0.9);}
+    .detail-thumb.active{border-color:var(--navy);opacity:1;filter:none;}
+    .detail-body{padding:2rem;}
+    .detail-cat{font-family:'Roboto Mono',monospace;font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem;}
+    .detail-title{font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:900;text-transform:uppercase;color:var(--navy);margin-bottom:1rem;line-height:1;}
+    .detail-desc{font-size:0.9rem;color:var(--muted);line-height:1.8;margin-bottom:1.5rem;}
+    .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:1.5rem;}
+    .detail-specs h4{font-family:'Barlow Condensed',sans-serif;font-size:0.7rem;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem;}
+    .detail-specs .tag{display:inline-block;margin:0.2rem 0.2rem 0.2rem 0;}
+    .detail-price-box{background:var(--offwhite);border:1px solid var(--border);padding:1.25rem;}
+    .detail-price-label{font-family:'Barlow Condensed',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:0.4rem;}
+    .detail-price-val{font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:900;color:var(--navy);}
+    .detail-actions{display:flex;gap:0.75rem;margin-top:1rem;}
+    .detail-btn-primary{font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;background:var(--navy);color:#fff;padding:0.8rem 2rem;border:none;cursor:pointer;transition:background 0.2s;flex:1;}
+    .detail-btn-primary:hover{background:#1a3050;}
+    .detail-btn-call{font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;background:transparent;color:var(--navy);padding:0.8rem 1.5rem;border:1px solid var(--navy);cursor:pointer;text-decoration:none;display:flex;align-items:center;justify-content:center;transition:all 0.18s;}
+    .detail-btn-call:hover{background:var(--navy);color:#fff;}
+    @media(max-width:640px){.detail-grid{grid-template-columns:1fr;}.detail-gallery{height:260px;}}
+
+    /* INQUIRY MODAL */
+    .modal-overlay{position:fixed;inset:0;z-index:300;background:rgba(11,26,46,0.6);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:2rem;}
+    .modal-overlay.open{display:flex;}
+    .modal{background:var(--white);border:1px solid var(--border);width:100%;max-width:560px;max-height:90vh;overflow-y:auto;animation:slideUp 0.3s ease;}
+    .modal-header{padding:1.5rem 1.75rem 1rem;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between;}
+    .modal-item-name{font-family:'Barlow Condensed',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:0.25rem;}
+    .modal-title{font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:900;text-transform:uppercase;color:var(--navy);}
+    .modal-close{background:none;border:1px solid var(--border);color:var(--muted);width:32px;height:32px;cursor:pointer;font-size:1rem;flex-shrink:0;transition:border-color 0.2s;}
+    .modal-close:hover{border-color:var(--navy);color:var(--navy);}
+    .modal-body{padding:1.5rem 1.75rem 1.75rem;}
+    .form-row{display:flex;gap:1rem;margin-bottom:1rem;}
+    .form-field{flex:1;display:flex;flex-direction:column;gap:0.4rem;}
+    .form-field label{font-family:'Barlow Condensed',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);}
+    .form-field input,.form-field select,.form-field textarea{background:var(--white);border:1px solid var(--border);color:var(--text);font-family:'Barlow',sans-serif;font-size:0.88rem;padding:0.65rem 0.9rem;outline:none;transition:border-color 0.2s;resize:vertical;appearance:none;}
+    .form-field input:focus,.form-field select:focus,.form-field textarea:focus{border-color:var(--navy);}
+    .form-field textarea{min-height:80px;}
+    .form-submit{font-family:'Barlow Condensed',sans-serif;font-size:0.9rem;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;background:var(--navy);color:#fff;padding:0.9rem 2rem;border:none;cursor:pointer;width:100%;margin-top:0.5rem;transition:background 0.2s;}
+    .form-submit:hover{background:#1a3050;}
+
+    /* ABOUT */
+    .cta-section{padding:5rem 2rem;background:var(--offwhite);border-top:1px solid var(--border);}
+    .cta-inner{max-width:1360px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+    .cta-text h2{font-family:'Barlow Condensed',sans-serif;font-size:2.8rem;font-weight:900;text-transform:uppercase;line-height:1;margin-bottom:1.25rem;color:var(--navy);}
+    .cta-text h2 span{color:var(--amber);}
+    .cta-text p{color:var(--muted);line-height:1.8;margin-bottom:0.75rem;font-size:0.95rem;}
+    .cta-bullets{list-style:none;margin:1.5rem 0;}
+    .cta-bullets li{font-size:0.88rem;color:var(--muted);padding:0.35rem 0;display:flex;align-items:center;gap:0.65rem;}
+    .cta-bullets li::before{content:'';display:block;width:20px;height:1px;background:var(--navy);flex-shrink:0;}
+    .inquiry-form{background:var(--white);border:1px solid var(--border);padding:2.5rem;}
+    .form-title{font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:800;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:1.75rem;color:var(--navy);}
+    .form-title span{color:var(--amber);}
+    .form-note{font-size:0.72rem;color:var(--muted);margin-top:0.75rem;line-height:1.6;}
+    .form-success{display:none;text-align:center;padding:2rem 0;}
+    .form-success p{color:var(--muted);font-size:0.9rem;}
+    .form-success h3{font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:800;text-transform:uppercase;color:var(--navy);margin-bottom:0.5rem;}
+
+    /* NEWSLETTER */
+    .newsletter-section{background:var(--navy);padding:3.5rem 2rem;}
+    .newsletter-inner{max-width:1360px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:3rem;flex-wrap:wrap;}
+    .newsletter-text h3{font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;font-weight:800;text-transform:uppercase;letter-spacing:0.04em;color:#fff;margin-bottom:0.35rem;}
+    .newsletter-text p{font-size:0.88rem;color:rgba(255,255,255,0.5);}
+    .newsletter-form{display:flex;flex:1;max-width:480px;}
+    .newsletter-input{flex:1;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-right:none;color:#fff;font-family:'Barlow',sans-serif;font-size:0.88rem;padding:0.75rem 1rem;outline:none;}
+    .newsletter-input::placeholder{color:rgba(255,255,255,0.35);}
+    .newsletter-btn{font-family:'Barlow Condensed',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;background:var(--amber);color:#fff;padding:0.75rem 1.5rem;border:none;cursor:pointer;white-space:nowrap;transition:background 0.2s;}
+    .newsletter-btn:hover{background:var(--amber2);}
+    .newsletter-success{display:none;font-family:'Barlow Condensed',sans-serif;font-size:0.9rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#fff;}
+
+    /* FOOTER */
+    footer{background:var(--navy);padding:3rem 2rem 2rem;}
+    .footer-inner{max-width:1360px;margin:0 auto;}
+    .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:2rem;}
+    .footer-brand-name{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:0.08em;color:#fff;text-transform:uppercase;margin-bottom:0.25rem;}
+    .footer-brand-sub{font-family:'Barlow Condensed',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.2em;color:rgba(255,255,255,0.45);text-transform:uppercase;margin-bottom:1rem;}
+    .footer-brand p{font-size:0.82rem;color:rgba(255,255,255,0.45);line-height:1.75;max-width:320px;}
+    .footer-col h4{font-family:'Barlow Condensed',sans-serif;font-size:0.7rem;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:1rem;}
+    .footer-col ul{list-style:none;}
+    .footer-col ul li{font-size:0.83rem;color:rgba(255,255,255,0.6);padding:0.25rem 0;cursor:pointer;transition:color 0.2s;}
+    .footer-col ul li:hover{color:#fff;}
+    .footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+    .footer-bottom p{font-size:0.75rem;color:rgba(255,255,255,0.3);}
+    .footer-bottom a{color:rgba(255,255,255,0.5);text-decoration:none;}
+    .footer-bottom a:hover{color:#fff;}
+
+    .toast{position:fixed;bottom:2rem;right:2rem;z-index:400;background:var(--navy);color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.85rem 1.5rem;transform:translateY(100px);opacity:0;transition:all 0.35s ease;box-shadow:0 4px 24px rgba(0,0,0,0.2);}
+    .toast.show{transform:translateY(0);opacity:1;}
+
+    @media(max-width:768px){.nav-links{display:none;}.cta-inner{grid-template-columns:1fr;gap:2.5rem;}.footer-top{grid-template-columns:1fr;gap:2rem;}.form-row{flex-direction:column;}.hero h1{font-size:3rem;}.equipment-grid{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-item"><span class="topbar-label">Office&nbsp;</span><a href="tel:9858049418">(985) 804-9418</a></div>
+    <div class="topbar-divider hide-mobile"></div>
+    <div class="topbar-item topbar-hide-mobile"><a href="mailto:info@gulfsurplusexchange.com">info@gulfsurplusexchange.com</a></div>
+  </div>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#">
+      <div class="nav-wordmark"><span>Gulf Surplus &amp; Exchange</span><span>Offshore &amp; Marine Equipment &mdash; Houma, LA</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#listings">Listings</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#about">Contact</a></li>
+    </ul>
+    <button class="nav-cta" onclick="openModal()">Submit Inquiry</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-label">Gulf Coast Surplus &mdash; Houma, LA</div>
+    <h1>Gulf-Grade<br/>Equipment,<br/><span>Ready to Work.</span></h1>
+    <p class="hero-sub">Offshore, marine, and pipeline construction equipment from active Gulf Coast operations. Inspectable at our Houma, Louisiana yard.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="#listings">Browse Inventory</a>
+      <button class="btn-outline" onclick="openModal()">Request Item</button>
+    </div>
+  </div>
+</section>
+
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat-item"><span class="stat-num">19</span><span class="stat-label">Items Listed</span></div>
+    <div class="stat-item"><span class="stat-num">Gulf Coast</span><span class="stat-label">Origin</span></div>
+    <div class="stat-item"><span class="stat-num">Houma, LA</span><span class="stat-label">Yard Location</span></div>
+    <div class="stat-item"><span class="stat-num">All Items</span><span class="stat-label">Inspectable On-Site</span></div>
+  </div>
+</div>
+
+<div class="main-wrap" id="listings">
+  <div class="section-header">
+    <div class="section-title">Current <span>Inventory</span></div>
+    <div class="section-count" id="result-count">Showing 17 items</div>
+  </div>
+  <div class="search-row">
+    <input class="search-input" type="text" id="search-input" placeholder="Search by keyword or equipment type..." oninput="applyFilters()" />
+    <button class="search-btn" onclick="applyFilters()">Search</button>
+  </div>
+  <div class="equipment-grid" id="grid"></div>
+  <div class="no-results" id="no-results">No items match your search. <a href="#" onclick="document.getElementById('search-input').value='';applyFilters();" style="color:var(--amber)">Clear search</a> or <a href="#" onclick="openModal()" style="color:var(--amber)">submit a request</a>.</div>
+</div>
+
+<section class="cta-section" id="about">
+  <div class="cta-inner">
+    <div class="cta-text">
+      <h2>Gulf Coast Equipment, <span>Fairly Priced.</span></h2>
+      <p>Gulf Surplus &amp; Exchange is a Gulf Coast surplus equipment marketplace specializing in offshore, marine, and pipeline construction equipment. Every item has seen real work in the field and is available for inspection at our yard in Houma, Louisiana.</p>
+      <p>We sell surplus as equipment rotates out of active operations. You're buying gear that did real work and was maintained accordingly.</p>
+      <ul class="cta-bullets">
+        <li>All items available for inspection at our Houma, LA yard</li>
+        <li>Maintenance records available on request</li>
+        <li>Local pickup or freight coordination available</li>
+        <li>Open to bulk and package lot offers</li>
+        <li>All sales as-is unless otherwise noted</li>
+        <li>Call us directly: <a href="tel:9858049418" style="color:var(--navy);font-weight:600;">(985) 804-9418</a></li>
+      </ul>
+    </div>
+    <div class="inquiry-form">
+      <div id="form-content">
+        <div class="form-title">Submit an <span>Inquiry</span></div>
+        <form id="main-inquiry-form" action="https://formspree.io/f/mqewdrjd" method="POST">
+          <input type="hidden" name="_subject" value="Gulf Surplus Inquiry"/>
+          <input type="hidden" name="_next" value="https://gulfsurplusexchange.com/thanks.html"/>
+          <div class="form-row"><div class="form-field"><label>First Name</label><input type="text" name="first_name" required placeholder="John"/></div><div class="form-field"><label>Last Name</label><input type="text" name="last_name" required placeholder="Smith"/></div></div>
+          <div class="form-row"><div class="form-field"><label>Company</label><input type="text" name="company" placeholder="Company name"/></div></div>
+          <div class="form-row"><div class="form-field"><label>Email</label><input type="email" name="email" required placeholder="you@company.com"/></div><div class="form-field"><label>Phone</label><input type="tel" name="phone" placeholder="(985) 000-0000"/></div></div>
+          <div class="form-row"><div class="form-field"><label>Item of Interest</label><select name="item_of_interest"><option value="">Select or describe below</option><option>American 385 Double Drum Winch</option><option>American 280 Triple Drum Winch</option><option>RB97 Single Drum Winch</option><option>Subsalve PF-20000 Lift Bags</option><option>Other / Not Listed</option></select></div></div>
+          <div class="form-row"><div class="form-field"><label>Message / Specs</label><textarea name="message" placeholder="Describe what you're looking for..."></textarea></div></div>
+          <button type="submit" class="form-submit">Send Inquiry</button>
+          <p class="form-note">We typically respond within 1 business day.</p>
+        </form>
+      </div>
+      <div class="form-success" id="form-success">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#1a8c4e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 1rem;display:block"><circle cx="12" cy="12" r="10"/><path d="M7 12l4 4 6-7"/></svg>
+        <h3>Inquiry Received</h3><p>We will follow up within one business day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="newsletter-section">
+  <div class="newsletter-inner">
+    <div class="newsletter-text"><h3>Stay Updated on New Listings</h3><p>Enter your email to get notified when new equipment is added.</p></div>
+    <div>
+      <div class="newsletter-form" id="newsletter-form-wrap">
+        <input class="newsletter-input" type="email" id="newsletter-email" placeholder="your@email.com"/>
+        <button class="newsletter-btn" onclick="subscribeNewsletter()">Subscribe</button>
+      </div>
+      <div class="newsletter-success" id="newsletter-success">&#10003;&nbsp; You're subscribed.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-name">Gulf Surplus &amp; Exchange</div>
+        <div class="footer-brand-sub">Offshore &amp; Marine Equipment</div>
+        <p>Gulf Coast surplus equipment marketplace. Offshore, marine, and pipeline construction equipment. Located in Houma, Louisiana.</p>
+      </div>
+      <div class="footer-col"><h4>Inventory</h4><ul>
+        <li onclick="document.getElementById('listings').scrollIntoView({behavior:'smooth'})">All Listings</li>
+        <li onclick="openDetail(0)">American 385 Winch</li>
+        <li onclick="openDetail(1)">American 280 Winch</li>
+        <li onclick="openDetail(2)">RB97 Winch</li>
+        <li onclick="openDetail(3)">Subsalve Lift Bags</li>
+        <li onclick="openModal()">Submit Inquiry</li>
+      </ul></div>
+      <div class="footer-col"><h4>Equipment Types</h4><ul>
+        <li>Winches &amp; Deck Equipment</li><li>Pipe &amp; Fittings</li><li>Marine Equipment</li><li>Tanks &amp; Vessels</li><li>Structural Steel</li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Gulf Surplus &amp; Exchange. All rights reserved. Houma, Louisiana.</p>
+      <p>Contact: <a href="tel:9858049418">(985) 804-9418</a> &nbsp;|&nbsp; <a href="mailto:info@gulfsurplusexchange.com">info@gulfsurplusexchange.com</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- DETAIL MODAL -->
+<div class="detail-overlay" id="detail-overlay" onclick="closeDetailOnOverlay(event)">
+  <div class="detail-modal" id="detail-modal">
+    <button class="detail-close" onclick="closeDetail()">&#x2715;</button>
+    <div class="detail-gallery"><img id="detail-main-img" src="" alt=""/><button class="detail-gallery-arrow prev" onclick="detailPrev()">&#8249;</button><button class="detail-gallery-arrow next" onclick="detailNext()">&#8250;</button><div class="detail-gallery-counter" id="detail-counter">1 / 1</div></div>
+    <div class="detail-thumbs" id="detail-thumbs"></div>
+    <div class="detail-body">
+      <div class="detail-cat" id="detail-cat"></div>
+      <div class="detail-title" id="detail-title"></div>
+      <div class="detail-desc" id="detail-desc"></div>
+      <div class="detail-grid">
+        <div class="detail-specs"><h4>Specifications</h4><div id="detail-tags"></div></div>
+        <div><div class="detail-price-box"><div class="detail-price-label">Pricing</div><div class="detail-price-val" id="detail-price"></div></div>
+        <div class="detail-actions">
+          <button class="detail-btn-primary" id="detail-inquire-btn">Inquire About This Item</button>
+          <a class="detail-btn-call" href="tel:9858049418">Call (985) 804-9418</a>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INQUIRY MODAL -->
+<div class="modal-overlay" id="modal" onclick="closeModalOnOverlay(event)">
+  <div class="modal">
+    <div class="modal-header"><div><div class="modal-item-name" id="modal-item-name">Equipment Inquiry</div><div class="modal-title" id="modal-title">Request Information</div></div><button class="modal-close" onclick="closeModal()">&#x2715;</button></div>
+    <div class="modal-body">
+      <form id="modal-inquiry-form" action="https://formspree.io/f/mqewdrjd" method="POST" target="_blank">
+        <input type="hidden" name="_subject" value="Gulf Surplus Equipment Inquiry"/>
+        <div class="form-row" style="margin-bottom:0.85rem;"><div class="form-field"><label>Name</label><input type="text" name="name" required placeholder="Full name"/></div><div class="form-field"><label>Company</label><input type="text" name="company" placeholder="Company"/></div></div>
+        <div class="form-row" style="margin-bottom:0.85rem;"><div class="form-field"><label>Email</label><input type="email" name="email" required placeholder="you@company.com"/></div><div class="form-field"><label>Phone</label><input type="tel" name="phone" placeholder="(985) 000-0000"/></div></div>
+        <div class="form-row" style="margin-bottom:1rem;"><div class="form-field"><label>Message</label><textarea id="modal-msg" name="message" style="min-height:80px;" placeholder="Questions, quantity, specs, or offer..."></textarea></div></div>
+        <button type="submit" class="form-submit">Send Inquiry</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">Inquiry Sent &mdash; We will be in touch.</div>
+
+<script>
+
+  var inventory = [
+    {
+      id: 0, cat: 'Winches', title: 'American 385 Double Drum Winch',
+      desc: 'American 385 double drum winch, hydraulic drive. Dual drum configuration on heavy-duty structural skid frame. Previously used in offshore pipeline and marine construction operations. Located at yard in Houma, LA. Available for inspection. Buyer responsible for load out.',
+      tags: ['Double Drum','Hydraulic Drive','American 385','Offshore','Marine Construction'],
+      price: 'Price on Request', photos: ["images/img_000.jpg","images/img_001.jpg","images/img_002.jpg","images/img_003.jpg"]
+    },
+    {
+      id: 1, cat: 'Winches', title: 'American 280 Triple Drum Winch',
+      desc: 'American 280 triple drum winch with diesel power unit. Three-drum configuration on heavy structural skid frame with rollers. Diesel engine mounted and intact. Unit marked P2. Previously used in offshore pipeline and marine construction operations. Located at yard in Houma, LA.',
+      tags: ['Triple Drum','Diesel Drive','American 280','Skid Mounted','Offshore'],
+      price: 'Price on Request', photos: ["images/img_004.jpg","images/img_005.jpg","images/img_006.jpg","images/img_007.jpg"]
+    },
+    {
+      id: 2, cat: 'Winches', title: 'RB97 Single Drum Winch',
+      desc: 'RB97 single drum winch with diesel power unit. Large diameter drum with wire rope in place. Heavy-duty open ring gear drive. Diesel engine on skid frame. Unit marked RB-97 / BM-51. Previously used in offshore pipeline and marine construction operations. Wire rope included.',
+      tags: ['Single Drum','Diesel Drive','RB97','Open Gear','Wire Rope Included'],
+      price: 'Price on Request', photos: ["images/img_008.jpg","images/img_009.jpg","images/img_010.jpg","images/img_011.jpg","images/img_012.jpg","images/img_013.jpg"]
+    },
+    {
+      id: 3, cat: 'Diving & Lifting', title: 'Subsalve PF-20000 Underwater Lift Bags (16 Units)',
+      desc: 'Subsalve Professional 20,000 lb lift bags. Open bottom, parachute-shaped with single attachment point. Urethane-coated nylon construction — UV resistant and resistant to most petrochemicals. Used once. Individual Subsalve Test & Conformity Certificates available for each unit. 6-strap configuration, IMCA D-016 Rev.4 compliant, ABS approved. Shipping cost to be covered by buyer.',
+      tags: ['22,000 LB / 10,000 KG','PF-20000 Professional','16 Units Available','IMCA D-016 Rev.4','ABS Approved','Used Once','Certs Included','Made in USA'],
+      price: '$2,000 ea.  |  All 16 for $29,000', photos: ["images/img_014.jpg","images/img_015.jpg"]
+    },
+    {
+      id: 4, cat: 'Heavy Equipment', title: 'ICE 44B/595 Vibratory Driver / Power Unit (2007)',
+      desc: '2007 ICE model 44B/595 vibratory driver with power unit. Asset ID 143. Located at Morrison Mulberry yard, Houma, LA. Available for inspection. Buyer responsible for load-out.',
+      tags: ["Vibratory Driver","Power Unit","ICE 44B/595","2007","Asset #143"],
+      price: 'Call for Price', photos: ["images/img_016.jpg"]
+    },
+    {
+      id: 5, cat: 'Attachments', title: '3-Point Auger / Post Hole Digger',
+      desc: '3-point hitch auger / post hole digger. Asset ID 248. Fits standard category tractor 3-point hitch. Located at Mulberry yard, Houma, LA.',
+      tags: ["3-Point Hitch","Auger","Post Hole Digger","Tractor Attachment"],
+      price: '$300', photos: ["data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iNjAwIj48cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iI2Y1ZjZmOCIvPjx0ZXh0IHg9IjQwMCIgeT0iMjkwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMjAiIGZpbGw9IiM1ZTZmODQiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlBob3RvIENvbWluZyBTb29uPC90ZXh0Pjwvc3ZnPg=="]
+    },
+    {
+      id: 6, cat: 'Heavy Equipment', title: 'Bobcat T300 Skid Steer (2007) — Fire Damage',
+      desc: '2007 Bobcat T300 tracked skid steer. Asset ID 118. Unit has fire damage — sold as-is for parts or rebuild. Located at Mulberry yard, Houma, LA. Buyer responsible for load-out.',
+      tags: ["Skid Steer","Bobcat T300","2007","Tracked","Fire Damage","As-Is"],
+      price: '$8,000 (Offers Considered)', photos: ["images/img_017.jpg"]
+    },
+    {
+      id: 7, cat: 'Generators & Lighting', title: 'Ingersoll Rand Light Tower',
+      desc: 'Ingersoll Rand portable diesel light tower. Located at Mulberry yard, Houma, LA. Available for inspection.',
+      tags: ["Light Tower","Ingersoll Rand","Diesel","Portable"],
+      price: '$1,500', photos: ["images/img_018.jpg"]
+    },
+    {
+      id: 8, cat: 'Welding Equipment', title: 'Lincoln 400 Amp Diesel Welding Machine — Parts/Repair (Harvey 2315)',
+      desc: '400 amp diesel-driven Lincoln welding machine. Asset Harvey 2315. Sold as junk / parts unit. Located at Mulberry yard, Houma, LA.',
+      tags: ["Welder","Lincoln","400 Amp","Diesel","Junk/Parts","Harvey 2315"],
+      price: '$500', photos: ["images/img_019.jpg"]
+    },
+    {
+      id: 9, cat: 'Welding Equipment', title: 'Lincoln 400 Amp Diesel Welding Machine — Parts/Repair (Harvey 2760)',
+      desc: '400 amp diesel-driven Lincoln welding machine. Asset Harvey 2760. Sold as junk / parts unit. Located at Mulberry yard, Houma, LA.',
+      tags: ["Welder","Lincoln","400 Amp","Diesel","Junk/Parts","Harvey 2760"],
+      price: '$500', photos: ["images/img_020.jpg"]
+    },
+    {
+      id: 10, cat: 'Machine Shop Equipment', title: 'Clausing Manual Engine Lathe',
+      desc: 'Clausing manual engine lathe in working condition. Located at Mulberry yard, Houma, LA. Available for inspection.',
+      tags: ["Manual Lathe","Clausing","Engine Lathe","Machine Shop"],
+      price: '$1,800 (Offers Considered)', photos: ["images/img_021.jpg"]
+    },
+    {
+      id: 11, cat: 'Machine Shop Equipment', title: 'Grob 4V 18 Vertical Bandsaw (1970)',
+      desc: '1970 Grob model 4V 18 vertical metal-cutting bandsaw. Heavy-duty industrial machine shop unit. Located at Mulberry yard, Houma, LA.',
+      tags: ["Vertical Bandsaw","Grob 4V 18","1970","Metal Cutting","Machine Shop"],
+      price: '$3,000', photos: ["images/img_022.jpg"]
+    },
+    {
+      id: 12, cat: 'Machine Shop Equipment', title: 'Jet Drill Press',
+      desc: 'Jet industrial drill press. Located at Mulberry yard, Houma, LA. Available for inspection.',
+      tags: ["Drill Press","Jet","Machine Shop","Industrial"],
+      price: '$2,000', photos: ["images/img_023.jpg"]
+    },
+    {
+      id: 13, cat: 'Machine Shop Equipment', title: 'Industrial Bandsaw',
+      desc: 'Industrial bandsaw. Located at Mulberry yard, Houma, LA. Available for inspection.',
+      tags: ["Bandsaw","Industrial","Machine Shop"],
+      price: '$800', photos: ["images/img_024.jpg"]
+    },
+    {
+      id: 14, cat: 'Attachments', title: 'Titan 3-Point 60" Box Blade — Missing Parts',
+      desc: '60-inch 3-point hitch box blade by Titan. Asset ID 243. Unit is missing some parts — sold as-is. Located at Mulberry yard, Houma, LA.',
+      tags: ["Box Blade","Titan","60 Inch","3-Point Hitch","Missing Parts","As-Is"],
+      price: '$400 (Offers Considered)', photos: ["images/img_025.jpg"]
+    },
+    {
+      id: 15, cat: 'Marine & Watercraft', title: '1997 Alumitech Airboat — 14\' D&R / 383 Stroker',
+      desc: '1997 Alumitech 14-foot airboat with D&R hull and 383 Stroker engine. Needs a new carburetor. Otherwise operational. Located at Mulberry yard, Houma, LA.',
+      tags: ["14' Hull","Alumitech","D&R","383 Stroker","1997","Needs Carburetor"],
+      price: '$15,000', photos: ["images/img_026.jpg"]
+    },
+    {
+      id: 16, cat: 'Marine & Watercraft', title: '1992 D&R Airboat — 15\' Alumitech / 350 Small Block',
+      desc: '1992 D&R airboat with 15-foot Alumitech hull and 350 small block engine. Hull has multiple leaks — sold as-is. Located at Mulberry yard, Houma, LA.',
+      tags: ["15' Hull","D&R","Alumitech","350 Small Block","1992","Hull Leaks","As-Is"],
+      price: '$15,000', photos: ["images/img_027.jpg"]
+    },
+    {
+      id: 17, cat: 'Marine & Watercraft', title: '16 ft. Aluminum Half-Cabin Boat — No Engine',
+      desc: 'Southfork Custom Boat 16-foot aluminum half-cabin workboat. As-is condition. No engine, steering, or throttle lever. Previously used in marine construction operations. Located at Mulberry yard, Houma, LA. Buyer responsible for load-out.',
+      tags: ['16 ft', 'Aluminum', 'Half-Cabin', 'Workboat', 'No Engine', 'As-Is'],
+      price: 'Call for Price', photos: ['images/img_028.jpg','images/img_029.jpg']
+    },
+    {
+      id: 18, cat: 'Marine & Watercraft', title: '14 ft. Southfork Flat Bottom Aluminum Boat',
+      desc: '14-foot Southfork Custom Boat flat bottom aluminum hull. USCG rated 3 persons / 395 lbs. Rated for up to 25 HP motor with remote steering. Located at Mulberry yard, Houma, LA. Buyer responsible for load-out.',
+      tags: ['14 ft', 'Flat Bottom', 'Aluminum', 'Southfork', 'USCG Rated', '25 HP Max', '3 Person'],
+      price: 'Call for Price', photos: ['images/img_030.jpg','images/img_031.jpg']
+    }
+  ];
+
+  // ── CARD CAROUSEL STATE ──
+  var cardPhotoIndex = Array(19).fill(0);
+
+  function renderGrid() {
+    var grid = document.getElementById('grid');
+    grid.innerHTML = inventory.map(function(item, i) {
+      var dots = item.photos.map(function(_,j) {
+        return '<button class="carousel-dot' + (j===0?' active':'') + '" onclick="event.stopPropagation();setCardPhoto(' + i + ',' + j + ')"></button>';
+      }).join('');
+      var arrows = item.photos.length > 1
+        ? '<button class="carousel-arrow prev" onclick="event.stopPropagation();cardPrev(' + i + ')">&#8249;</button><button class="carousel-arrow next" onclick="event.stopPropagation();cardNext(' + i + ')">&#8250;</button>'
+        : '';
+      return '<div class="card" style="animation-delay:' + (i*0.07) + 's">' +
+        '<div class="card-img" onclick="openDetail(' + i + ')">' +
+          '<img id="card-img-' + i + '" src="' + item.photos[0] + '" alt="' + item.title + '"/>' +
+          '<div class="card-badge avail">Available</div>' +
+          arrows +
+          '<div class="carousel-dots">' + dots + '</div>' +
+          '<div class="card-img-overlay"><span class="view-detail-hint">View Details</span></div>' +
+        '</div>' +
+        '<div class="card-body">' +
+          '<div class="card-cat">' + item.cat + '</div>' +
+          '<div class="card-title">' + item.title + '</div>' +
+          '<div class="card-desc">' + item.desc.substring(0,140) + '...</div>' +
+          '<div class="card-meta">' + item.tags.slice(0,4).map(function(t){return '<span class="tag">'+t+'</span>';}).join('') + '</div>' +
+        '</div>' +
+        '<div class="card-footer">' +
+          '<span class="card-price">' + item.price + '</span>' +
+          '<button class="card-inquire" onclick="openModalFor(\'' + item.title.replace(/'/g,"\\'") + '\',\'' + item.cat + '\')">Inquire</button>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+  }
+
+  function setCardPhoto(itemIdx, photoIdx) {
+    cardPhotoIndex[itemIdx] = photoIdx;
+    var img = document.getElementById('card-img-' + itemIdx);
+    if(img) img.src = inventory[itemIdx].photos[photoIdx];
+    var card = img ? img.closest('.card-img') : null;
+    if(card) {
+      var dots = card.querySelectorAll('.carousel-dot');
+      dots.forEach(function(d,j){ d.classList.toggle('active', j===photoIdx); });
+    }
+  }
+
+  function cardNext(i) {
+    var next = (cardPhotoIndex[i] + 1) % inventory[i].photos.length;
+    setCardPhoto(i, next);
+  }
+  function cardPrev(i) {
+    var prev = (cardPhotoIndex[i] - 1 + inventory[i].photos.length) % inventory[i].photos.length;
+    setCardPhoto(i, prev);
+  }
+
+  // ── DETAIL MODAL ──
+  var currentDetail = null;
+  var detailPhotoIdx = 0;
+
+  function openDetail(idx) {
+    currentDetail = idx;
+    detailPhotoIdx = 0;
+    var item = inventory[idx];
+    document.getElementById('detail-cat').textContent = item.cat;
+    document.getElementById('detail-title').textContent = item.title;
+    document.getElementById('detail-desc').textContent = item.desc;
+    document.getElementById('detail-price').textContent = item.price;
+    document.getElementById('detail-tags').innerHTML = item.tags.map(function(t){return '<span class="tag">'+t+'</span>';}).join('');
+    document.getElementById('detail-inquire-btn').onclick = function(){ closeDetail(); openModalFor(item.title, item.cat); };
+    renderDetailGallery();
+    document.getElementById('detail-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function renderDetailGallery() {
+    var item = inventory[currentDetail];
+    document.getElementById('detail-main-img').src = item.photos[detailPhotoIdx];
+    document.getElementById('detail-counter').textContent = (detailPhotoIdx+1) + ' / ' + item.photos.length;
+    var thumbs = document.getElementById('detail-thumbs');
+    thumbs.innerHTML = item.photos.map(function(p,j){
+      return '<img class="detail-thumb' + (j===detailPhotoIdx?' active':'') + '" src="' + p + '" onclick="detailSetPhoto(' + j + ')" alt="Photo ' + (j+1) + '"/>';
+    }).join('');
+    var prev = document.querySelector('.detail-gallery-arrow.prev');
+    var next = document.querySelector('.detail-gallery-arrow.next');
+    if(prev) prev.style.display = item.photos.length > 1 ? '' : 'none';
+    if(next) next.style.display = item.photos.length > 1 ? '' : 'none';
+  }
+
+  function detailSetPhoto(idx) {
+    detailPhotoIdx = idx;
+    renderDetailGallery();
+  }
+  function detailNext() {
+    detailPhotoIdx = (detailPhotoIdx + 1) % inventory[currentDetail].photos.length;
+    renderDetailGallery();
+  }
+  function detailPrev() {
+    detailPhotoIdx = (detailPhotoIdx - 1 + inventory[currentDetail].photos.length) % inventory[currentDetail].photos.length;
+    renderDetailGallery();
+  }
+
+  function closeDetail() {
+    document.getElementById('detail-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeDetailOnOverlay(e) {
+    if(e.target === document.getElementById('detail-overlay')) closeDetail();
+  }
+
+  // ── SEARCH ──
+  function applyFilters() {
+    var q = document.getElementById('search-input').value.toLowerCase();
+    var cards = document.querySelectorAll('.card');
+    var visible = 0;
+    cards.forEach(function(card) {
+      var text = card.textContent.toLowerCase();
+      if(!q || text.includes(q)) { card.style.display=''; visible++; }
+      else { card.style.display='none'; }
+    });
+    document.getElementById('result-count').textContent = 'Showing ' + visible + ' of ' + inventory.length + ' items';
+    document.getElementById('no-results').classList.toggle('show', visible === 0);
+  }
+
+  // ── INQUIRY MODAL ──
+  function openModal() {
+    document.getElementById('modal-item-name').textContent = 'General Inquiry';
+    document.getElementById('modal-title').textContent = 'Request Information';
+    document.getElementById('modal-msg').placeholder = 'What are you looking for?';
+    document.getElementById('modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function openModalFor(title, cat) {
+    document.getElementById('modal-item-name').textContent = cat;
+    document.getElementById('modal-title').textContent = title;
+    document.getElementById('modal-msg').value = "I'm interested in the " + title + ". ";
+    document.getElementById('modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() { document.getElementById('modal').classList.remove('open'); document.body.style.overflow=''; }
+  function closeModalOnOverlay(e) { if(e.target===document.getElementById('modal')) closeModal(); }
+
+
+  function showToast() {
+    var t = document.getElementById('toast');
+    t.classList.add('show');
+    setTimeout(function(){ t.classList.remove('show'); }, 3500);
+  }
+
+  function subscribeNewsletter() {
+    var email = document.getElementById('newsletter-email').value;
+    if(!email || !email.includes('@')) { document.getElementById('newsletter-email').focus(); return; }
+    document.getElementById('newsletter-form-wrap').style.display='none';
+    document.getElementById('newsletter-success').style.display='block';
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if(e.key==='Escape') { closeModal(); closeDetail(); }
+    if(e.key==='ArrowRight' && currentDetail!==null) detailNext();
+    if(e.key==='ArrowLeft' && currentDetail!==null) detailPrev();
+  });
+
+  renderGrid();
+</script>
+
+</body>
+</html>
